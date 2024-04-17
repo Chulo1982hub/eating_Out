@@ -61,7 +61,7 @@ colPerc(table)
 ```
 
 x axis is eatout = y axis is (1 = yes 2= no) labels on the columns are
-(1= Blackm 2= white, 3= other)
+(1= Black, 2= white, 3= other)
 
 ## inferential results
 ### Chi-squared test results 
@@ -79,9 +79,26 @@ chisqtestGC(table)
 ```{r}
 fisher.test(table)
 fisherXY(GSS$eatout,GSS$race, printAll=T)
+
 ```
 
 
 
 ## Summary and Conclusions
+
+In the Pearson's Chi - Square Test, Given the low p-value (less than 0.05), there is strong evidence to reject the null hypothesis of independence between "eatout" and "race". In other words, there appears to be a significant association between how often people eat out and their race.
+
+
+Overall, it seems there is a significant association between levels 1 and 2, as indicated by the low p-value and the odds ratio significantly different from 1. However, there is no significant association between levels 1 and 3, nor between levels 2 and 3.
+
+
+In conlcusion, Specifically, level 1 appears to dine out more often than level 2, as indicated by the significant association between these two levels in the Fisher's Exact Test, with an odds ratio significantly different from 1.
+
+
+
+
+
+
+
+
 
