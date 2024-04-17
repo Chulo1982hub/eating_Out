@@ -34,8 +34,7 @@ require(tigerstats)
 require(knitr)
 #require(haven)
 GSS=read.csv('GSS1996.csv')
-GSS$race = factor(GSS$race,level=c('black','white','other'))
-GSS$eatout = factor(GSS$eatout, level=c('yes','no'))
+
 ```
 
 ## Methods
@@ -48,16 +47,33 @@ Both 'race and eatout' are categorical. Therfore we us the Cat~Cat helper file
 
 ```{r}
 barchartGC(~eatout + race,data=GSS)
-barchartGC(~race+eatout, data=GSS)
-
 barchartGC(~eatout + race, data=GSS, type="percent")
 
 ```
 
 ##numerical description
 
-## infrential results  
-### Chi-squared test results  
+```{r}
+table = xtabs(~eatout + race, data=GSS)
+print(table)
+rowPerc(table)
+colPerc(table)
+```
+
+
+## infrential results
+### Chi-squared test results 
+
+
+```{r}
+chisq.test(table)
+chisqtestGC(table)
+fisher.test(table)
+```
+
+
+
+
 
 
 ### fisherXY test results
